@@ -3,6 +3,8 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
+import Title from "../../components/shared/Title.astro";
+import { Icon } from "astro-icon/components";
 
 export const getStaticPaths = (async () => {
     const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
@@ -33,15 +35,26 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
 const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 ---
 
-<Layout 
-title={`Pokémon - #${id} ${name}`}
-description={`Información sobre el pokémon ${name}`}
-image={imageSrc}
+<Layout
+    title={`Pokémon - #${id} ${name}`}
+    description={`Información sobre el pokémon ${name}`}
+    image={imageSrc}
 >
     <section class="mt-10 mx-10 flex flex-col justify-center items-center">
-        <div>
-            <a href="/">Regresar</a>
-            <h1 class="text-5xl capitalize">{name}</h1>
+        <div class="flex flex-row">
+            <div>
+                <!-- <a href="/">Regresar</a> -->
+                <button
+                    onclick="history.back()"
+                    class="text-blue-500 hover:text-blue-700">Regresar</button
+                >
+                <Title>{name}</Title>
+            </div>
+
+            <button class="ml-4">
+                <Icon name="heart-outline" size={50} />
+                <Icon class="hidden" name="heart-full" size={50} />
+            </button>
         </div>
 
         <PokemonCard name={name} url={url} isBig />
@@ -56,5 +69,9 @@ image={imageSrc}
 <style>
     a {
         @apply hover:underline text-blue-500;
+    }
+
+    #button-favorite {
+        @apply hover:animate-pulse;
     }
 </style>
