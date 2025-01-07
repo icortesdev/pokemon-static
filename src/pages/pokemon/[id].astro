@@ -8,7 +8,7 @@ import Layout from "../../layouts/Layout.astro";
 // Path Absoluto
 // import PokemonCard from 'src/components/pokemons/PokemonCard.astro';
 // Path Alias
-import PokemonCard from "../../components/PokemonCard.astro";
+import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 
 export const getStaticPaths = (async () => {
     const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");

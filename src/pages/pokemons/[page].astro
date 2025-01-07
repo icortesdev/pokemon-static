@@ -1,7 +1,7 @@
 ---
 //codigo server side only - momento de construccion
 import type { GetStaticPaths } from "astro";
-import PokemonCard from "../../components/PokemonCard.astro";
+import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
 
 import Layout from "../../layouts/Layout.astro";
@@ -18,7 +18,7 @@ const { page } = Astro.props;
 ---
 
 <Layout title={title}>
-    <h1 class="text-3xl">Listado de Pokémons</h1>
+    <h1 class="text-4xl font-bold ml-4">Listado paginado de Pokémons</h1>
     <hr />
 
     <section
