@@ -3,6 +3,7 @@ const links = [
     { name: "Listado", href: "/" },
     { name: "Favoritos", href: "/favorites" },
     { name: "Paginado", href: "/pokemons/1" },
+    { name: "Islas", href: "/islands" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -42,8 +43,8 @@ const currentPath = Astro.url.pathname;
                             transition:name="menu-line"
                             class="border-b-2 border-blue-500 mx-4"
                         />
-                        ) : ( 
-                            <div class="border-b-2 border-transparent mx-4"/>
+                    ) : (
+                        <div class="border-b-2 border-transparent mx-4" />
                     )}
                     {/* <div class="border-b-2 border-blue-500 mx-4"/> */}
                 </div>
