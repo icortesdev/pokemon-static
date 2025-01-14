@@ -74,14 +74,13 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
 </Layout>
 
 <script>
-    interface FavoritePokemon {
-        id: number;
-        name: string;
-    }
+   
 
     // document.addEventListener('astro:before-preparation', () => {
     //     console.log("astro:before-preparation");
     // });
+
+import type { FavoritePokemon } from "@interfaces/favorite-pokemon";
 
     // document.addEventListener("astro:after-preparation", () => {
     //     console.log("astro:after-preparation");
